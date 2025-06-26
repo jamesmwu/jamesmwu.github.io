@@ -1,0 +1,100 @@
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+.App {
+	background-color: #1f1f28;
+	font-size: 17px;
+	color: #dcd7ba;
+	font-family: 'JetBrains Mono', monospace;
+	cursor: text;
+	text-align: left;
+}
+
+.terminal-container {
+	position: fixed;
+	background-color: #1f1f28;
+	padding: 10px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.text-field {
+	width: calc(100% - 250px);
+	border: none;
+	background-color: #1f1f28;
+	font-size: 17px;
+	font-weight: bold;
+	color: #76946a;
+	overflow: auto;
+	outline: none;
+	font-family: 'JetBrains Mono', serif;
+}
+
+.wave {
+	animation-name: waving;
+	animation-duration: 2.5s;
+	animation-iteration-count: infinite;
+	transform-origin: 70% 70%;
+	display: inline-block;
+	font-size: 20px;
+}
+
+@keyframes waving {
+	0% {
+		transform: rotate(0deg);
+	}
+	10% {
+		transform: rotate(14deg);
+	}
+	20% {
+		transform: rotate(-8deg);
+	}
+	30% {
+		transform: rotate(14deg);
+	}
+	40% {
+		transform: rotate(-4deg);
+	}
+	50% {
+		transform: rotate(10deg);
+	}
+	60% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+::selection {
+	background: #76946a;
+	color: #1f1f28;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+	color: #76946a;
+}
+
+.cmd {
+	color: #76946a;
+	text-decoration: underline;
+	font-weight: bolder;
+	margin: 0px;
+}
