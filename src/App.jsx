@@ -17,7 +17,9 @@ function App() {
 
 	const inputHandler = (event) => {
 		if (event.key === 'ArrowUp') {
+			// Prevent default browser behavior
 			event.preventDefault();
+
 			if (historyLocation !== -1) {
 				if (historyLocation === commandHistory.length) {
 					historyLocation--;
@@ -41,7 +43,7 @@ function App() {
 			history.push(
 				<div>
 					<span style={{ color: '#DCA561' }}>guest</span>@
-					<span style={{ color: '#7E9CD8' }}>nareh.dev</span>:~${' '}
+					<span style={{ color: '#7E9CD8' }}>jameswu.dev</span>:~${' '}
 					<span className='text-field'>{boxValue}</span>
 				</div>
 			);
@@ -76,7 +78,7 @@ function App() {
 					<div>{history}</div>
 				))}
 				<span style={{ color: '#DCA561' }}>guest</span>@
-				<span style={{ color: '#7E9CD8' }}>nareh.dev</span>:~${' '}
+				<span style={{ color: '#7E9CD8' }}>jameswu.dev</span>:~${' '}
 				<input
 					autoFocus
 					ref={inputRef}
