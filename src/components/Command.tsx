@@ -7,7 +7,11 @@ import { Repo } from './bin/Repo';
 import { FunFact } from './bin/FunFact';
 import '../styles.css';
 
-export const Command = ({ commandInput }) => {
+interface CommandProps {
+	commandInput: string;
+}
+
+export const Command: React.FC<CommandProps> = ({ commandInput }) => {
 	switch (commandInput.toLowerCase()) {
 		case '':
 			return <div />;

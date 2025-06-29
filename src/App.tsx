@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import './styles.css';
 import Command from './components/Command';
 
@@ -13,9 +13,9 @@ let history = [<Command commandInput='banner' />];
 
 function App() {
 	const [boxValue, setBoxValue] = useState('');
-	const [commandHistory, setCommandHistory] = useState([]);
+	const [commandHistory, setCommandHistory] = useState<string[]>([]);
 
-	const inputHandler = (event) => {
+	const inputHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === 'ArrowUp') {
 			// Prevent default browser behavior
 			event.preventDefault();
@@ -48,7 +48,7 @@ function App() {
 				</div>
 			);
 			history.push(<Command commandInput={boxValue} />);
-			let fullHistory = commandHistory.concat([boxValue]);
+			const fullHistory = commandHistory.concat([boxValue]);
 			if (boxValue === 'clear') {
 				history = [];
 			}
@@ -62,11 +62,11 @@ function App() {
 	 * - Always scroll to the bottom of the overflowed screen when commands are issued
 	 * - Always focus on text input
 	 */
-	const inputRef = useRef();
+	const inputRef = useRef<HTMLInputElement>(null);
 	const inputFocus = () => {
-		inputRef.current.focus();
+		inputRef.current?.focus();
 	};
-	useEffect(() => inputRef.current.scrollIntoView());
+	useEffect(() => inputRef.current?.scrollIntoView());
 
 	return (
 		<div
