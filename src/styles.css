@@ -12,10 +12,81 @@ code {
 		monospace;
 }
 
+/* Theme CSS Variables */
+:root {
+	/* good-vibes (default) */
+	--bg-primary: #1f1f28;
+	--bg-secondary: #1f1f28;
+	--text-primary: #dcd7ba;
+	--text-secondary: #727169;
+	--accent-primary: #76946a;
+	--accent-secondary: #7aa2f7;
+	--accent-tertiary: #dca561;
+	--error: #e82424;
+	--selection-bg: #76946a;
+	--selection-text: #1f1f28;
+}
+
+/* Noctis Lux Theme */
+[data-theme='noctis-lux'] {
+	--bg-primary: #f6edda;
+	--bg-secondary: #f6edda;
+	--text-primary: #323232;
+	--text-secondary: #f75589;
+	--accent-primary: #f75589;
+	--accent-secondary: #ea6200;
+	--accent-tertiary: #14767e;
+	--error: #ff5370;
+	--selection-bg: #ffc107;
+	--selection-text: #1b1e2b;
+}
+
+/* Snoopy Theme */
+[data-theme='snoopy'] {
+	--bg-primary: #ffffff;
+	--bg-secondary: #ffffff;
+	--text-primary: #231f1c;
+	--text-secondary: #231f1c;
+	--accent-primary: #f44336;
+	--accent-secondary: #d5a000;
+	--accent-tertiary: #82aaff;
+	--error: #ff5370;
+	--selection-bg: #ffc107;
+	--selection-text: #1b1e2b;
+}
+
+/* UCLA Theme (blue and gold Bruins colors) */
+[data-theme='ucla'] {
+	--bg-primary: #003b5c;
+	--bg-secondary: #003b5c;
+	--text-primary: #ffffff;
+	--text-secondary: #8bb8d8;
+	--accent-primary: #ffd100;
+	--accent-secondary: #00a5e5;
+	--accent-tertiary: #ffb81c;
+	--error: #c41e3a;
+	--selection-bg: #ffd100;
+	--selection-text: #003b5c;
+}
+
+/* Vanta Theme (professional security/tech colors) */
+[data-theme='vanta'] {
+	--bg-primary: #250642;
+	--bg-secondary: #250642;
+	--text-primary: #f0f6fc;
+	--text-secondary: #7d8590;
+	--accent-primary: #ac55ff;
+	--accent-secondary: #cc9cfa;
+	--accent-tertiary: #cc9cfa;
+	--error: #f85149;
+	--selection-bg: #264f78;
+	--selection-text: #f0f6fc;
+}
+
 .App {
-	background-color: #1f1f28;
+	background-color: var(--bg-primary);
 	font-size: 17px;
-	color: #dcd7ba;
+	color: var(--text-primary);
 	font-family: 'JetBrains Mono', monospace;
 	cursor: text;
 	text-align: left;
@@ -23,7 +94,7 @@ code {
 
 .terminal-container {
 	position: fixed;
-	background-color: #1f1f28;
+	background-color: var(--bg-secondary);
 	padding: 10px;
 	box-sizing: border-box;
 	width: 100%;
@@ -34,10 +105,10 @@ code {
 .text-field {
 	width: calc(100% - 250px);
 	border: none;
-	background-color: #1f1f28;
+	background-color: var(--bg-secondary);
 	font-size: 17px;
 	font-weight: bold;
-	color: #76946a;
+	color: var(--accent-primary);
 	overflow: auto;
 	outline: none;
 	font-family: 'JetBrains Mono', serif;
@@ -80,8 +151,8 @@ code {
 }
 
 ::selection {
-	background: #76946a;
-	color: #1f1f28;
+	background: var(--selection-bg);
+	color: var(--selection-text);
 }
 
 a,
@@ -89,11 +160,11 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-	color: #76946a;
+	color: var(--accent-primary);
 }
 
 .cmd {
-	color: #76946a;
+	color: var(--accent-primary);
 	text-decoration: underline;
 	font-weight: bolder;
 	margin: 0px;

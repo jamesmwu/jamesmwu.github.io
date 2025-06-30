@@ -1,23 +1,59 @@
-import { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import './styles.css';
-import Command from './components/Command';
+import { Command } from './components/Command';
 
 // For command history (up/down arrows)
 let historyLocation = -1;
 
-/*
- * For displayed all issued commands and outputs
- * Not `const` to allow for resetting on a "clear" command
+/**
+ * Unique ID for each command (not for prompts)
+ * This is used to prevent unnecessary component re-renders
  */
-let history = [<Command commandInput='banner' />];
+let commandCounter = 0;
+
+/**
+ * Prompt: shows the guest@jameswu.dev:~${user input}
+ * Command: shows the output of the user's command
+ *
+ * This allows separation of Command component rendering
+ * and the line with the user inputs, so we can do some
+ * more dynamic live updates within command outputs.
+ * (e.g theme change)
+ */
+interface HistoryItem {
+	type: 'prompt' | 'command';
+	content?: string;
+	commandInput?: string;
+	id?: number;
+}
 
 function App() {
 	const [boxValue, setBoxValue] = useState('');
 	const [commandHistory, setCommandHistory] = useState<string[]>([]);
+	const [currentTheme, setCurrentTheme] = useState('good-vibes');
+	const [historyItems, setHistoryItems] = useState<HistoryItem[]>([
+		{ type: 'command', commandInput: 'banner', id: commandCounter++ },
+	]);
 
+	// Get the theme the user last used
+	useEffect(() => {
+		const savedTheme = localStorage.getItem('terminal-theme');
+		if (savedTheme) {
+			setCurrentTheme(savedTheme);
+			document.documentElement.setAttribute('data-theme', savedTheme);
+		}
+	}, []);
+
+	// Callback function to update theme - memoized to prevent unnecessary re-renders
+	const handleThemeChange = useCallback((theme: string) => {
+		setCurrentTheme(theme);
+		localStorage.setItem('terminal-theme', theme);
+		document.documentElement.setAttribute('data-theme', theme);
+	}, []);
+
+	// Handle non-text terminal inputs (arrows, enter, CMD+K, etc)
 	const inputHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === 'ArrowUp') {
-			// Prevent default browser behavior
 			event.preventDefault();
 
 			if (historyLocation !== -1) {
@@ -38,19 +74,28 @@ function App() {
 				historyLocation++;
 				setBoxValue(commandHistory[historyLocation]);
 			}
+		} else if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+			event.preventDefault();
+			setHistoryItems([]);
+			setCommandHistory([]);
+			setBoxValue('');
 		} else if (event.key === 'Enter') {
 			historyLocation = commandHistory.length;
-			history.push(
-				<div>
-					<span style={{ color: '#DCA561' }}>guest</span>@
-					<span style={{ color: '#7E9CD8' }}>jameswu.dev</span>:~${' '}
-					<span className='text-field'>{boxValue}</span>
-				</div>
-			);
-			history.push(<Command commandInput={boxValue} />);
+			const newHistoryItems = [
+				...historyItems,
+				{ type: 'prompt' as const, content: boxValue },
+				{
+					type: 'command' as const,
+					commandInput: boxValue,
+					id: commandCounter++,
+				},
+			];
+
 			const fullHistory = commandHistory.concat([boxValue]);
 			if (boxValue === 'clear') {
-				history = [];
+				setHistoryItems([]);
+			} else {
+				setHistoryItems(newHistoryItems);
 			}
 			setCommandHistory(fullHistory);
 			setBoxValue('');
@@ -74,11 +119,31 @@ function App() {
 			onClick={inputFocus}
 		>
 			<div className='terminal-container'>
-				{history.map((history) => (
-					<div>{history}</div>
+				{historyItems.map((item, index) => (
+					<div
+						key={
+							item.type === 'command' ? `command-${item.id}` : `prompt-${index}`
+						}
+					>
+						{item.type === 'prompt' ? (
+							<div>
+								<span style={{ color: 'var(--accent-tertiary)' }}>guest</span>@
+								<span style={{ color: 'var(--accent-secondary)' }}>
+									jameswu.dev
+								</span>
+								:~$ <span className='text-field'>{item.content}</span>
+							</div>
+						) : (
+							<Command
+								commandInput={item.commandInput || ''}
+								onThemeChange={handleThemeChange}
+								currentTheme={currentTheme}
+							/>
+						)}
+					</div>
 				))}
-				<span style={{ color: '#DCA561' }}>guest</span>@
-				<span style={{ color: '#7E9CD8' }}>jameswu.dev</span>:~${' '}
+				<span style={{ color: 'var(--accent-tertiary)' }}>guest</span>@
+				<span style={{ color: 'var(--accent-secondary)' }}>jameswu.dev</span>:~${' '}
 				<input
 					autoFocus
 					ref={inputRef}

@@ -4,25 +4,32 @@ export const About = () => {
 	return (
 		<div style={{ margin: '20px', width: '55%' }}>
 			<p>
-				hiya, welcome to my website! <span className='wave'>👋</span>
+				Hello! <span className='wave'>👋</span>
 			</p>
 			<p>
-				i'm nareh, an aspiring software developer based in los angeles. i'm
-				currently pursuing my bachelor's in computer science at ucla. outside of
-				studies, i spend my time as co-president of acm hack at ucla, a computer
-				science organization focused on empowering the community by exploring
-				what's possible through code.
+				I'm James, an incoming software engineer at Vanta. I graduated from UCLA
+				with a B.S. in Computer Science, and have previously worked at Arista
+				Networks, QA Wolf, and GrammaTech. I began my career working fulltime as
+				a software engineer at QA Wolf while also being a fulltime student at
+				UCLA!
 			</p>
 			<p>
-				i do enjoy creating projects in my free time (this website is a result
-				of that!), but outside of programming, i'm particularly interested in
-				music (listening, playing, production, theory), playing video games with
-				buddies, and (more recently) reading!
+				In my free time, I enjoy playing sports, reading, and learning things.
+				My career ambition is to build interesting things that people love, so
+				to me software engineering is a creative and practical way to fulfill
+				that goal.
 			</p>
 			<p>
-				for contact beyond my <a href='https://github.com/nareha'>github</a> or{' '}
-				<a href='https://www.linkedin.com/in/nareha/'>linkedin</a>, feel free to
-				shoot me an <a href='mailto:nareh.agazaryan@gmail.com'>email</a>!
+				Feel free to reach out to me on{' '}
+				<a
+					href='https://www.linkedin.com/in/james-wu/'
+					target='_blank'
+					rel='noopener noreferrer'
+				>
+					LinkedIn
+				</a>{' '}
+				or email me at{' '}
+				<a href='mailto:jamesw0462@gmail.com'>jamesw0462@gmail.com</a>!
 			</p>
 		</div>
 	);

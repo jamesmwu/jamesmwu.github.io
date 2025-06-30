@@ -5,13 +5,20 @@ import { Banner } from './bin/Banner';
 import { Help } from './bin/Help';
 import { Repo } from './bin/Repo';
 import { FunFact } from './bin/FunFact';
+import { Theme } from './bin/Theme';
 import '../styles.css';
 
 interface CommandProps {
 	commandInput: string;
+	onThemeChange?: (theme: string) => void;
+	currentTheme?: string;
 }
 
-export const Command: React.FC<CommandProps> = ({ commandInput }) => {
+const CommandComponent: React.FC<CommandProps> = ({
+	commandInput,
+	onThemeChange,
+	currentTheme,
+}) => {
 	switch (commandInput.toLowerCase()) {
 		case '':
 			return <div />;
@@ -27,15 +34,39 @@ export const Command: React.FC<CommandProps> = ({ commandInput }) => {
 			return <Repo />;
 		case 'funfact':
 			return <FunFact />;
+		case 'theme':
+			return (
+				<Theme
+					onThemeChange={onThemeChange!}
+					currentTheme={currentTheme!}
+				/>
+			);
 		default:
 			return (
 				<div className='command'>
 					Command not found:{' '}
-					<span style={{ color: '#E82424' }}>{commandInput}</span>. Run{' '}
+					<span style={{ color: 'var(--error)' }}>{commandInput}</span>. Run{' '}
 					<span className='cmd'>help</span> for a list of available commands.
 				</div>
 			);
 	}
 };
 
-export default Command;
+// This prevents unnecessary re-renders (specifically when theme changes)
+const arePropsEqual = (prevProps: CommandProps, nextProps: CommandProps) => {
+	// Different command, so you have to render the new one
+	if (prevProps.commandInput !== nextProps.commandInput) {
+		return false;
+	}
+
+	// For theme command, check if currentTheme changed
+	if (nextProps.commandInput.toLowerCase() === 'theme') {
+		return prevProps.currentTheme === nextProps.currentTheme;
+	}
+
+	return true;
+};
+
+// Memoize the component with custom comparison
+// Only re-render when props actually matter for this specific command
+export const Command = React.memo(CommandComponent, arePropsEqual);

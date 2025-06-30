@@ -1,29 +1,23 @@
 import '../../styles.css';
 
 const ascii = [
-	'     _________',
-	'    / ======= \\                          __',
-	'   / __________\\      ___  ___  _______ / /',
-	'  | ___________ |    / _ \\/ _ `/ __/ -_) _ \\',
-	'  | | -       | |   /_//_/\\_,_/_/  \\__/_//_/',
-	'  | |         | |',
-	'  | |_________| |______________________________',
-	'  \\=____________/                              )',
-	'  / """"""""""" \\                             /',
-	" / ::::::::::::: \\                 v1.0.0 =D-'",
-	'(_________________)',
+	'   __   ______   __    __   ______   ______       __     __   __  __    ',
+	'  /\\ \\ /\\  __ \\ /\\ "-./  \\ /\\  ___\\ /\\  ___\\     /\\ \\  _ \\ \\ /\\ \\/\\ \\   ',
+	' _\\_\\ \\\\ \\  __ \\\\ \\ \\-./\\ \\\\ \\  __\\ \\ \\___  \\    \\ \\ \\/ ".\\ \\\\ \\ \\_\\ \\  ',
+	'/\\_____\\\\ \\_\\ \\_\\\\ \\_\\ \\ \\_\\\\ \\_____\\\\/\\_____\\    \\ \\__/".~\\_\\\\ \\_____\\ ',
+	'\\/_____/ \\/_/\\/_/ \\/_/  \\/_/ \\/_____/ \\/_____/     \\/_/   \\/_/ \\/_____/ ',
+	'                                                                        ',
 ].join('\n');
 
 export const Banner = () => {
 	return (
 		<div>
-			<div>Beginning boot sequence...</div>
-			<pre style={{ color: '#76946A' }}>{ascii}</pre>
+			<div>Initializing terminal...</div>
+			<pre style={{ color: 'var(--accent-secondary)' }}>{ascii}</pre>
 			<div>
-				<p style={{ marginBottom: '0px' }}>Welcome to my terminal.</p>
+				<p style={{ marginBottom: '0px' }}>Welcome to James Wu's terminal.</p>
 				<p style={{ marginBottom: '5px', marginTop: '0px' }}>
-					Run <span className='cmd'>help</span> to get a list of available
-					commands.
+					Type <span className='cmd'>help</span> to see available commands.
 				</p>
 			</div>
 		</div>
