@@ -14,17 +14,17 @@ code {
 
 /* Theme CSS Variables */
 :root {
-	/* good-vibes (default) */
-	--bg-primary: #1f1f28;
-	--bg-secondary: #1f1f28;
-	--text-primary: #dcd7ba;
-	--text-secondary: #727169;
-	--accent-primary: #76946a;
-	--accent-secondary: #7aa2f7;
-	--accent-tertiary: #dca561;
-	--error: #e82424;
-	--selection-bg: #76946a;
-	--selection-text: #1f1f28;
+	/* good-vibes */
+	--bg-primary: #0d1117;
+	--bg-secondary: #0d1117;
+	--text-primary: #d9d4c9;
+	--text-secondary: #8b949e;
+	--accent-primary: #c77d37;
+	--accent-secondary: #ded864;
+	--accent-tertiary: #e37c7c;
+	--error: #ff7b72;
+	--selection-bg: #58a6ff;
+	--selection-text: #0d1117;
 }
 
 /* Noctis Lux Theme */

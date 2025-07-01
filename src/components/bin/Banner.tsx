@@ -12,7 +12,7 @@ const ascii = [
 export const Banner = () => {
 	return (
 		<div>
-			<div>Initializing terminal...</div>
+			<div>User authenticated. Welcome!</div>
 			<pre style={{ color: 'var(--accent-secondary)' }}>{ascii}</pre>
 			<div>
 				<p style={{ marginBottom: '0px' }}>Welcome to James Wu's terminal.</p>

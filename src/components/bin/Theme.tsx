@@ -10,7 +10,10 @@ export const Theme: React.FC<ThemeProps> = ({
 	currentTheme,
 }) => {
 	const themes = [
-		{ name: 'good-vibes', description: 'Dark blue theme (default)' },
+		{
+			name: 'good-vibes',
+			description: 'The classic vibes (default)',
+		},
 		{ name: 'noctis-lux', description: 'My choice of code editor theme' },
 		{ name: 'snoopy', description: 'Big fan of Peanuts' },
 		{ name: 'ucla', description: 'Go Bruins!' },

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Ping } from './bin/Ping';
 import { About } from './bin/About';
 import { Banner } from './bin/Banner';
 import { Help } from './bin/Help';
 import { Repo } from './bin/Repo';
 import { FunFact } from './bin/FunFact';
 import { Theme } from './bin/Theme';
+import { Projects } from './bin/Projects';
+import { Experiences } from './bin/Experiences';
+import { Signout } from './bin/Signout';
 import '../styles.css';
 
 interface CommandProps {
@@ -24,8 +26,6 @@ const CommandComponent: React.FC<CommandProps> = ({
 			return <div />;
 		case 'help':
 			return <Help />;
-		case 'ping':
-			return <Ping />;
 		case 'about':
 			return <About />;
 		case 'banner':
@@ -41,6 +41,12 @@ const CommandComponent: React.FC<CommandProps> = ({
 					currentTheme={currentTheme!}
 				/>
 			);
+		// case 'projects':
+		// 	return <Projects />;
+		// case 'experiences':
+		// 	return <Experiences />;
+		case 'signout':
+			return <Signout />;
 		default:
 			return (
 				<div className='command'>
