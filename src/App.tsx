@@ -37,6 +37,7 @@ function App() {
 	const [mode, setMode] = useState<Mode>('loading');
 	const [username, setUsername] = useState<string>('guest');
 	const [dotCount, setDotCount] = useState(0);
+	const [loggingIn, setLoggingIn] = useState(false);
 
 	const [historyItems, setHistoryItems] = useState<HistoryItem[]>([]);
 
@@ -77,7 +78,7 @@ function App() {
 				}
 				return prev + 1;
 			});
-		}, 650);
+		}, 500);
 		return () => clearInterval(interval);
 	}, [mode]);
 
@@ -93,19 +94,27 @@ function App() {
 		// Name input mode
 		if (mode === 'askName') {
 			if (event.key === 'Enter') {
-				const nameEntered = (boxValue.trim() || 'guest').replace(/\s+/g, '-');
-				setUsername(nameEntered);
-				localStorage.setItem('terminal-username', nameEntered);
+				// Flag for visual "Logging in..." message in terminal
+				setLoggingIn(true);
 
-				// Create initial history with ssh command and banner
-				const initHistory: HistoryItem[] = [
-					{ type: 'prompt', content: `ssh ${nameEntered}@jameswu.dev` },
-					{ type: 'command', commandInput: 'banner', id: commandCounter++ },
-				];
-				setHistoryItems(initHistory);
-				setBoxValue('');
-				setCommandHistory([]);
-				setMode('ready');
+				setTimeout(() => {
+					console.log('HERE');
+					setLoggingIn(false);
+
+					const nameEntered = (boxValue.trim() || 'guest').replace(/\s+/g, '-');
+					setUsername(nameEntered);
+					localStorage.setItem('terminal-username', nameEntered);
+
+					// Create initial history with ssh command and banner
+					const initHistory: HistoryItem[] = [
+						{ type: 'prompt', content: `ssh ${nameEntered}@jameswu.dev` },
+						{ type: 'command', commandInput: 'banner', id: commandCounter++ },
+					];
+					setHistoryItems(initHistory);
+					setBoxValue('');
+					setCommandHistory([]);
+					setMode('ready');
+				}, 2000);
 			}
 			return;
 		}
@@ -217,8 +226,13 @@ function App() {
 						type='text'
 						value={boxValue}
 						onKeyDown={inputHandler}
-						onChange={(e) => setBoxValue(e.target.value)}
+						onChange={(e) => {
+							if (!loggingIn) {
+								setBoxValue(e.target.value);
+							}
+						}}
 					/>
+					{loggingIn && <div>Logging in...</div>}
 				</div>
 			</div>
 		);
