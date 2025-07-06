@@ -5,8 +5,8 @@ import { Help } from './bin/Help';
 import { Repo } from './bin/Repo';
 import { FunFact } from './bin/FunFact';
 import { Theme } from './bin/Theme';
-import { Projects } from './bin/Projects';
-import { Experiences } from './bin/Experiences';
+// import { Projects } from './bin/Projects';
+// import { Experiences } from './bin/Experiences';
 import { Signout } from './bin/Signout';
 import '../styles.css';
 
