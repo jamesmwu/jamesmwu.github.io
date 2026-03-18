@@ -21,12 +21,3 @@ production build, then run `npm run deploy` to publish it.
 
 You can also use `npm run deploy -- -m "Deploy React app to GitHub Pages"` to
 specify a commit message.
-
-## Acknowledgements
-
-This is the third major version of my website (each one being its own rehaul),
-and was heavily inspired by my friend Nareh's personal website @nareha.
-
-The repo was also initially forked (with permission) from Nareh's original
-website. If you enjoyed the concept behind this website, credit goes to them!
-Thanks Nareh! :)
