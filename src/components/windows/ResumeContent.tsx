@@ -28,16 +28,16 @@ export const ResumeContent = () => (
 
 			<h3>Experience</h3>
 			<div className="resume-entry">
-				<strong>Vanta</strong> — Software Engineer (Incoming)
-			</div>
-			<div className="resume-entry">
-				<strong>Arista Networks</strong> — Software Engineer Intern
+				<strong>Vanta</strong> — Software Engineer
 			</div>
 			<div className="resume-entry">
 				<strong>QA Wolf</strong> — Software Engineer
 			</div>
 			<div className="resume-entry">
-				<strong>GrammaTech</strong> — Software Engineer Intern
+				<strong>Arista Networks</strong> — Software Engineer
+			</div>
+			<div className="resume-entry">
+				<strong>GrammaTech</strong> — Software Engineer
 			</div>
 			<p
 				style={{
