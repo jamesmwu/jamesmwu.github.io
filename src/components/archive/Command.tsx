@@ -1,14 +1,14 @@
 import React from 'react';
-import { About } from './bin/About';
-import { Banner } from './bin/Banner';
-import { Help } from './bin/Help';
-import { Repo } from './bin/Repo';
-import { FunFact } from './bin/FunFact';
-import { Theme } from './bin/Theme';
-// import { Projects } from './bin/Projects';
-// import { Experiences } from './bin/Experiences';
-import { Signout } from './bin/Signout';
-import '../styles.css';
+import { About } from './About';
+import { Banner } from './Banner';
+import { Help } from './Help';
+import { Repo } from './Repo';
+import { FunFact } from './FunFact';
+import { Theme } from './Theme';
+// import { Projects } from './Projects';
+// import { Experiences } from './Experiences';
+import { Signout } from './Signout';
+import '../../styles.css';
 
 interface CommandProps {
 	commandInput: string;
