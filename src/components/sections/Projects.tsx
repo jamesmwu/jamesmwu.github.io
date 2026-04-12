@@ -47,7 +47,7 @@ export default function Projects() {
 				))}
 			</ul>
 			<p className='mt-8 text-sm leading-relaxed text-muted'>
-				... and many more which are now defunct! Some notable ones include a
+				... and many more which are now defunct! some notable ones include a
 				Taiwanese dictionary app "Taigi" with 5000+ downloads and a content
 				moderation bot "Halberd" for a 2k+ member Discord server.
 			</p>

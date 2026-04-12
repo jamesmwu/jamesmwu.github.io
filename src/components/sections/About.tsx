@@ -11,7 +11,7 @@ const OTHER_ACHIEVEMENTS = [
 		label: 'The Orchestra Cup',
 		url: 'https://www.theorchestracup.com/',
 		description:
-			'california all-state symphony orchestra; 1st place with the DBHS symphony orchestra at the national orchestra cup.',
+			'California All-State Symphony Orchestra; 1st place with the DBHS Symphony Orchestra at the National Orchestra Cup.',
 	},
 	{
 		label: 'ACM Hack',
@@ -29,7 +29,7 @@ export default function About() {
 			</h4>
 
 			<Snippet title="WHAT I'M INTERESTED IN">
-				<p className="text-muted">
+				<p className='text-muted'>
 					i find work fulfilling. if you do it well, you make an end user happy,
 					you make your team happy, and make money at the same time! (whether
 					through salaried employment or your own entrepreneurial endeavors.) i
