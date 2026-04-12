@@ -29,10 +29,10 @@ export default function About() {
 			</h4>
 
 			<Snippet title="WHAT I'M INTERESTED IN">
-				<p>
+				<p className="text-muted">
 					i find work fulfilling. if you do it well, you make an end user happy,
 					you make your team happy, and make money at the same time! (whether
-					through salaried employment or your own entreprenurial endeavors.) i
+					through salaried employment or your own entrepreneurial endeavors.) i
 					have three aspirations for my professional life: to make something
 					people want, to do the work well, and to enjoy it along the way.
 				</p>
