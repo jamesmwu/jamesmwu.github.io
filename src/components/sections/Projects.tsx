@@ -1,8 +1,13 @@
 const PROJECTS = [
 	{
-		name: 'Retro Llama',
+		name: 'Aptets',
+		description: 'an agent to solve distribution for vibe coded SaaS',
+		url: 'https://aptets.com/',
+	},
+	{
+		name: 'Simple Retro',
 		description: 'easily create and share team retrospectives',
-		url: 'https://llama-retro.netlify.app/',
+		url: 'https://simple-retro.com/',
 	},
 	{
 		name: 'Haven',
