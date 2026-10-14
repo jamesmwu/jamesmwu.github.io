@@ -1,7 +1,7 @@
 const PROJECTS = [
 	{
 		name: 'Aptets',
-		description: 'an agent to solve distribution for vibe coded SaaS',
+		description: 'AI browser agents that test your product and flag what breaks',
 		url: 'https://aptets.com/',
 	},
 	{
